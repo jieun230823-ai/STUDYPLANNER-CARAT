@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#fbf0f4">
+<title>CARAT STUDY — 수능 플래너</title>
+<style>
+:root{--bg:#fbf0f4;--surface:#fffafd;--ink:#433d50;--muted:#847d91;--line:#eee2ec;--accent:#9e9acb;--rose:#f2cbd9;--serenity:#c8d4ee;--shadow:0 10px 30px #594a6810}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans KR",sans-serif;transition:background .25s}
+button,input,select{font:inherit}button{cursor:pointer;border:0}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #9b9bd777;outline-offset:2px}
+.wrap{max-width:1100px;margin:auto;padding:24px 18px 56px}.topline{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}.brand{font-weight:850;letter-spacing:.08em;font-size:14px}.brand span{color:#a27d9b}.pill{border:1px solid var(--line);background:#ffffffa8;padding:7px 12px;border-radius:999px;color:var(--muted);font-size:12px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;margin-bottom:16px}.card{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:var(--shadow);min-width:0}.hero-day{background:linear-gradient(130deg,#f4dbe5,#dbe3f5);border:0;position:relative;overflow:hidden}.eyebrow{font-size:11px;letter-spacing:.15em;font-weight:800;color:#746a8c}.dday{font-size:clamp(48px,8vw,76px);font-weight:900;letter-spacing:-.06em;line-height:1.05;margin:10px 0 6px;color:#4e4967}.sub{color:#716b83;font-size:13px}.diamond{position:absolute;right:25px;top:25px;font-size:64px;opacity:.45}.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:13px}.section-head h2{font-size:17px;margin:0}.tiny{font-size:12px;color:var(--muted)}.soft-btn,.main-btn,.icon-btn{border-radius:12px;padding:9px 12px;background:#f0eaf6;color:#625a7a;font-weight:700;font-size:13px}.main-btn{background:#8f8dbd;color:white}.icon-btn{padding:6px 9px}.song-card{display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(145deg,#fffafd,#f1eefb)}.song-title{font-size:24px;font-weight:850;margin:5px 0}.song-artist{color:var(--muted);font-size:13px}.chip-row{display:flex;gap:6px;flex-wrap:wrap}.chip{background:#f4edf7;border-radius:999px;padding:6px 10px;font-size:12px;color:#716483;border:1px solid transparent}.chip.active{background:#e5e1f5;border-color:#c8c1e4;color:#514a72}.layout{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}.full{grid-column:1/-1}.collapse-toggle{display:flex;width:100%;align-items:center;justify-content:space-between;background:transparent;padding:0;color:inherit;text-align:left}.collapse-toggle h2{margin:0;font-size:17px}.caret{font-size:20px;color:var(--muted)}.panel-content{margin-top:16px}.swatches{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.swatch{border:2px solid transparent;border-radius:13px;min-height:65px;padding:8px;text-align:left;color:#514b61;font-size:12px;font-weight:750}.swatch.selected{border-color:#8176a6;box-shadow:0 0 0 2px white inset}.swatch small{display:block;font-weight:500;opacity:.75;margin-top:4px}.subjects{display:flex;gap:7px;flex-wrap:wrap}.subject-key{display:inline-flex;align-items:center;gap:6px;border-radius:999px;background:#faf7fb;padding:6px 10px;font-size:12px;border:1px solid var(--line)}.dot{width:9px;height:9px;border-radius:50%}
+.timer-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.timer-box{border:1px solid var(--line);border-radius:17px;padding:15px;background:#fffdfd}.timer-display{font-size:34px;font-weight:850;letter-spacing:.04em;margin:10px 0}.timer-actions{display:flex;gap:7px;flex-wrap:wrap}.timer-actions button{flex:1}.field{width:100%;border:1px solid var(--line);border-radius:11px;background:#fff;padding:10px 11px;color:var(--ink);min-width:0}.form-row{display:flex;gap:8px;flex-wrap:wrap}.form-row>*{flex:1;min-width:110px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.stat{padding:11px;border-radius:13px;background:#f8f3fa}.stat strong{display:block;font-size:19px}.stat span{font-size:11px;color:var(--muted)}.timeline{display:flex;flex-direction:column;gap:8px}.time-item{display:grid;grid-template-columns:112px 8px 1fr auto;align-items:center;gap:10px;padding:10px 12px;border-radius:13px;background:#fffdfd;border:1px solid var(--line)}.time-text{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}.time-bar{height:37px;border-radius:8px}.time-main{min-width:0}.time-main strong{font-size:13px}.time-main small{display:block;color:var(--muted);font-size:12px;margin-top:3px;overflow-wrap:anywhere}.todo-list{display:flex;flex-direction:column;gap:8px}.todo{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:13px;padding:11px;background:#fffdfd}.todo input[type=checkbox]{accent-color:#9b96c8;width:17px;height:17px}.todo-text{flex:1;min-width:0}.todo-text strong{display:block;font-size:13px}.todo-text small{color:var(--muted);font-size:11px}.todo.done strong{text-decoration:line-through;color:#aaa2b1}.empty{padding:20px;text-align:center;color:var(--muted);font-size:13px}.notice{font-size:11px;color:var(--muted);line-height:1.6;margin-top:12px}.hidden{display:none!important}.footer{text-align:center;color:var(--muted);font-size:11px;margin-top:25px}
+@media(max-width:720px){.wrap{padding:14px 12px 40px}.hero,.layout{grid-template-columns:1fr}.full{grid-column:auto}.card{padding:16px}.diamond{font-size:46px}.timer-grid{grid-template-columns:1fr}.swatches{grid-template-columns:repeat(2,1fr)}.time-item{grid-template-columns:88px 6px 1fr auto;gap:7px;padding:9px}.time-text{font-size:11px}.time-main strong{font-size:12px}.time-item .icon-btn{padding:5px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topline"><div class="brand">💎 CARAT <span>STUDY</span></div><div class="pill">나의 공부 플래너</div></div>
+  <section class="hero">
+    <div class="card hero-day"><div class="eyebrow">MY EXAM PERIOD</div><div class="dday" id="dday" style="font-size:clamp(34px,6vw,58px)">날짜를 설정해 줘</div><div class="sub" id="examDate">시험 기간을 선택하면 디데이가 자동 계산돼.</div><div class="diamond">◇</div><div class="sub" style="margin-top:22px">조금씩, 꾸준히, 끝까지. 💗</div></div>
+    <div class="card song-card"><div><div class="section-head"><h2>🎧 오늘의 노래 추천</h2><span class="tiny">SEVENTEEN</span></div><div class="song-title" id="songTitle">_WORLD</div><div class="song-artist" id="songArtist">SEVENTEEN · 그룹곡</div></div><div><div class="chip-row" id="songTypes" style="margin:17px 0 13px"><button class="chip active" data-type="전체">전체</button><button class="chip" data-type="그룹곡">그룹곡</button><button class="chip" data-type="최신곡">최신곡</button><button class="chip" data-type="유닛곡">유닛곡</button><button class="chip" data-type="솔로곡">솔로곡</button></div><div class="form-row"><button class="main-btn" id="nextSong">다른 곡 추천 ↗</button><a class="soft-btn" id="songLink" href="https://www.youtube.com/results?search_query=SEVENTEEN+_WORLD" target="_blank" rel="noopener">유튜브에서 듣기</a></div></div></div>
+  </section>
+  <section class="card" style="margin-bottom:16px">
+    <div class="section-head"><div><h2>📅 시험기간 설정</h2><div class="tiny">시작일과 종료일을 선택하면 종료일까지 남은 날짜를 자동 계산해.</div></div></div>
+    <div class="form-row">
+      <label class="tiny" style="flex:1">시험기간 시작일<input class="field" type="date" id="periodStart" style="margin-top:6px"></label>
+      <label class="tiny" style="flex:1">시험일 / 종료일<input class="field" type="date" id="periodEnd" style="margin-top:6px"></label>
+    </div>
+    <div class="notice" id="periodStatus">날짜를 선택해 줘. 설정은 이 브라우저에 자동 저장돼.</div>
+  </section>
+  <section class="card">
+    <button class="collapse-toggle" data-collapse="themeContent"><div><h2>🎨 전체 배경 화면 설정</h2><div class="tiny">파스텔 테마를 선택해 나만의 플래너로 꾸며봐</div></div><span class="caret" id="themeContentCaret">⌃</span></button>
+    <div class="panel-content" id="themeContent"><div class="swatches" id="swatches"></div></div>
+  </section>
+  <div class="layout">
+    <section class="card full">
+      <div class="section-head"><div><h2 style="margin:0;font-size:17px">📚 과목 관리</h2><div class="tiny">원하는 과목을 직접 추가·수정·삭제할 수 있어.</div></div></div>
+      <form id="subjectForm" class="form-row"><input class="field" id="subjectNameInput" placeholder="과목 이름 입력" maxlength="30"><button class="main-btn" type="submit">＋ 과목 추가</button></form>
+      <div id="subjectManager" class="subjects" style="margin-top:12px"></div>
+      <div class="notice">과목을 추가하지 않아도 플래너를 사용할 수 있어. 과목을 삭제하면 해당 과목의 기존 기록은 과목 미지정으로 남아.</div>
+    </section>
+    <section class="card full">
+      <div class="section-head"><div><h2 style="margin:0;font-size:17px">⏱️ 과목별 공부시간 측정</h2><div class="tiny">시작·일시정지·종료를 눌러 공부 기록을 남겨봐</div></div></div>
+      <div class="timer-grid">
+        <div class="timer-box"><label class="tiny" for="timerSubject">공부 과목</label><select id="timerSubject" class="field" style="margin-top:6px"></select><div class="timer-display" id="timerDisplay">00:00:00</div><div class="timer-actions"><button class="main-btn" id="startTimer">시작</button><button class="soft-btn" id="pauseTimer">일시정지</button><button class="soft-btn" id="stopTimer">종료·저장</button></div><div class="notice" id="timerStatus">타이머를 시작하면 선택한 과목의 색상으로 공부시간을 기록해.</div></div>
+        <div><div class="subjects" id="subjectLegend"></div><div class="stats" id="stats"></div><div class="notice">공부시간 기록은 이 브라우저에 자동 저장돼. 다른 기기나 브라우저에는 자동으로 공유되지 않아.</div></div>
+      </div>
+    </section>
+    <section class="card">
+      <button class="collapse-toggle" data-collapse="todoContent"><div><h2>✅ 공부계획 TO-DO</h2><div class="tiny">추가 · 수정 · 삭제 · 완료 체크</div></div><span class="caret" id="todoContentCaret">⌃</span></button>
+      <div class="panel-content" id="todoContent">
+        <div id="todoList" class="todo-list"></div>
+        <form id="todoForm" style="margin-top:12px"><div class="form-row"><select class="field" id="todoSubject"></select><input class="field" id="todoInput" placeholder="할 일 입력하기" required></div><div class="form-row" style="margin-top:8px"><button class="main-btn" id="todoSubmit">＋ 할 일 추가</button><button class="soft-btn hidden" id="todoCancel" type="button">수정 취소</button></div></form>
+      </div>
+    </section>
+    <section class="card">
+      <div class="section-head"><div><h2 style="margin:0;font-size:17px">📊 오늘의 기록</h2><div class="tiny">타이머로 저장한 과목별 공부시간</div></div></div>
+      <div id="dailyBreakdown" class="timeline"></div>
+      <div class="notice">시간표 일정은 계획이고, 공부 기록은 실제 타이머로 측정한 시간이야.</div>
+    </section>
+  </div>
+  <div class="footer">Made for your own study rhythm · Rose Quartz × Serenity 💎</div>
+</div>
+<script>
+const $=s=>document.querySelector(s);
+let subjects=load('caratSubjects',[]);
+const palette=['#F2C8D8','#BFD5F5','#C7E8D0','#F6E0AC','#DCCDF5','#F5C9B8','#BFE7E5','#E8D5F5','#D7E7B5','#F2D5A5'];
+function colorFor(subject){let i=Math.max(0,subjects.indexOf(subject));return palette[i%palette.length]||'#e8e3ed'}
+const themes=[
+ {name:'로즈쿼츠',bg:'#fbf0f4',surface:'#fffafd',accent:'#d8a8bf',rose:'#f2cbd9',serenity:'#c8d4ee'},
+ {name:'세레니티',bg:'#eef2fb',surface:'#fcfdff',accent:'#9aaed8',rose:'#f2cbd9',serenity:'#c8d4ee'},
+ {name:'로즈쿼츠 × 세레니티',bg:'#f7eff8',surface:'#fffafd',accent:'#a8a3d0',rose:'#f2cbd9',serenity:'#c8d4ee'},
+ {name:'라벤더',bg:'#f2eefb',surface:'#fdfbff',accent:'#b5a2dc',rose:'#f2cbd9',serenity:'#c8d4ee'},
+ {name:'민트',bg:'#edf7f1',surface:'#fbfffc',accent:'#9bcab5',rose:'#f2cbd9',serenity:'#c8d4ee'},
+ {name:'레몬',bg:'#fbf7e9',surface:'#fffef9',accent:'#d6c47d',rose:'#f2cbd9',serenity:'#c8d4ee'},
+ {name:'피치',bg:'#fff0e9',surface:'#fffaf7',accent:'#e3b19b',rose:'#f2cbd9',serenity:'#c8d4ee'},
+ {name:'베이비 블루',bg:'#eaf4fa',surface:'#fbfeff',accent:'#94c0da',rose:'#f2cbd9',serenity:'#c8d4ee'}
+];
+const songs=[
+ ['_WORLD','SEVENTEEN','그룹곡'],['음악의 신','SEVENTEEN','그룹곡'],['Super','SEVENTEEN','그룹곡'],['손오공','SEVENTEEN','그룹곡'],['VERY NICE','SEVENTEEN','그룹곡'],['Left & Right','SEVENTEEN','그룹곡'],['Rock with you','SEVENTEEN','그룹곡'],['HOT','SEVENTEEN','그룹곡'],['HOME;RUN','SEVENTEEN','그룹곡'],['아주 NICE','SEVENTEEN','그룹곡'],['LOVE, MONEY, FAME','SEVENTEEN','최신곡'],['MAESTRO','SEVENTEEN','최신곡'],['Spell','Performance Team','유닛곡'],['Cheers','SVT LEADERS','유닛곡'],['기대','HOSHI · WOOZI · DK','유닛곡'],['바람개비','SEVENTEEN','그룹곡'],['Ruby','WOOZI','솔로곡'],['Spider','HOSHI','솔로곡'],['Limbo','JUN','솔로곡'],['Psycho','JUN','솔로곡'],['Black Eye','VERNON','솔로곡'],['The8 - Hai Cheng','THE 8','솔로곡'],['Dandelion','SEUNGKWAN','솔로곡'],['Cheers to youth','SEVENTEEN','그룹곡']
+];
+let songType='전체',songIndex=0;
+function renderSong(){let list=songs.map((s,i)=>({...s,i})).filter(s=>songType==='전체'||s[2]===songType);if(!list.length)return;songIndex=((songIndex%list.length)+list.length)%list.length;let s=list[songIndex];$('#songTitle').textContent=s[0];$('#songArtist').textContent=s[1]+' · '+s[2];$('#songLink').href='https://www.youtube.com/results?search_query='+encodeURIComponent('SEVENTEEN '+s[0]);document.querySelectorAll('#songTypes .chip').forEach(b=>b.classList.toggle('active',b.dataset.type===songType))}
+$('#songTypes').addEventListener('click',e=>{let b=e.target.closest('button[data-type]');if(!b)return;songType=b.dataset.type;songIndex=0;renderSong()});$('#nextSong').onclick=()=>{songIndex++;renderSong()};renderSong();
+function dateOnly(value){if(!value)return null;const [y,m,d]=value.split('-').map(Number);return new Date(y,m-1,d)}
+function updateExamPeriod(){const start=$('#periodStart').value,end=$('#periodEnd').value;const today=new Date();today.setHours(0,0,0,0);if(start&&end&&start>end){$('#periodStatus').textContent='종료일은 시작일보다 빠를 수 없어. 날짜를 다시 확인해 줘.';$('#dday').textContent='날짜를 확인해 줘';$('#examDate').textContent='시험기간 설정을 확인해 줘';return}if(!start&&!end){$('#dday').textContent='날짜를 설정해 줘';$('#examDate').textContent='시험 기간을 선택하면 디데이가 자동 계산돼.';$('#periodStatus').textContent='날짜를 선택해 줘. 설정은 이 브라우저에 자동 저장돼.';return}if(end){const exam=dateOnly(end);const n=Math.round((exam-today)/86400000);$('#dday').textContent=n>0?'D-'+n:n===0?'D-DAY':'D+'+Math.abs(n);$('#examDate').textContent='시험일: '+exam.toLocaleDateString('ko-KR',{year:'numeric',month:'long',day:'numeric',weekday:'long'});let periodText=start?'시험기간: '+dateOnly(start).toLocaleDateString('ko-KR')+' ~ '+exam.toLocaleDateString('ko-KR'):'시험일이 설정됐어.';$('#periodStatus').textContent=periodText+' · 설정은 자동 저장돼.'}else{$('#dday').textContent='종료일 선택';$('#examDate').textContent='종료일을 선택하면 디데이가 계산돼.';$('#periodStatus').textContent='시험기간 시작일이 저장됐어. 종료일도 선택해 줘.'}save('caratPeriodStart',start);save('caratPeriodEnd',end)}
+$('#periodStart').value=load('caratPeriodStart','');$('#periodEnd').value=load('caratPeriodEnd','');$('#periodStart').addEventListener('change',updateExamPeriod);$('#periodEnd').addEventListener('change',updateExamPeriod);updateExamPeriod();
+function load(key,fallback){try{return JSON.parse(localStorage.getItem(key))??fallback}catch{return fallback}}
+function save(key,val){localStorage.setItem(key,JSON.stringify(val))}
+function refreshSubjectSelects(){
+  ['#timerSubject','#todoSubject'].forEach(sel=>{const el=$(sel),old=el.value;el.innerHTML='<option value="">과목 미지정</option>'+subjects.map(s=>`<option value="${esc(s)}">${esc(s)}</option>`).join('');if(subjects.includes(old))el.value=old;else el.value=''});
+  renderSubjectManager();renderStats();
+}
+function renderSubjectManager(){const el=$('#subjectManager');if(!el)return;el.innerHTML=subjects.length?subjects.map((s,i)=>`<span class="subject-key"><i class="dot" style="background:${colorFor(s)}"></i><span>${esc(s)}</span><button class="icon-btn" type="button" data-rename-subject="${i}" title="과목 수정">✎</button><button class="icon-btn" type="button" data-remove-subject="${i}" title="과목 삭제">×</button></span>`).join(''):'<div class="empty">아직 등록된 과목이 없어. 위에서 원하는 과목을 추가해 줘.</div>'}
+$('#subjectForm').addEventListener('submit',e=>{e.preventDefault();const input=$('#subjectNameInput'),name=input.value.trim();if(!name)return;if(subjects.some(s=>s.toLowerCase()===name.toLowerCase())){alert('이미 있는 과목이야.');return}subjects.push(name);save('caratSubjects',subjects);input.value='';refreshSubjectSelects()});
+$('#subjectManager').addEventListener('click',e=>{const ren=e.target.closest('[data-rename-subject]'),del=e.target.closest('[data-remove-subject]');if(ren){const i=Number(ren.dataset.renameSubject),old=subjects[i],next=prompt('과목 이름 수정',old);if(next===null)return;const name=next.trim();if(!name)return;if(subjects.some((s,j)=>j!==i&&s.toLowerCase()===name.toLowerCase())){alert('이미 있는 과목이야.');return}subjects[i]=name;todos=todos.map(t=>t.subject===old?{...t,subject:name}:t);sessions=sessions.map(x=>x.subject===old?{...x,subject:name}:x);save('caratSubjects',subjects);save('caratTodos',todos);save('caratSessions',sessions);refreshSubjectSelects();renderTodos();return}if(del){const i=Number(del.dataset.removeSubject),old=subjects[i];if(!confirm(`'${old}' 과목을 삭제할까? 기존 기록은 과목 미지정으로 남아.`))return;subjects.splice(i,1);todos=todos.map(t=>t.subject===old?{...t,subject:''}:t);sessions=sessions.map(x=>x.subject===old?{...x,subject:''}:x);save('caratSubjects',subjects);save('caratTodos',todos);save('caratSessions',sessions);refreshSubjectSelects();renderTodos()}});
+let selectedTheme=load('caratTheme',0);
+function applyTheme(i){selectedTheme=i;let t=themes[i];document.documentElement.style.setProperty('--bg',t.bg);document.documentElement.style.setProperty('--surface',t.surface);document.documentElement.style.setProperty('--accent',t.accent);save('caratTheme',i);document.querySelectorAll('.swatch').forEach((b,j)=>b.classList.toggle('selected',j===i))}
+$('#swatches').innerHTML=themes.map((t,i)=>`<button class="swatch" data-i="${i}" style="background:${t.bg}"><span>${t.name}</span><small>${i===0?'Rose Quartz':i===1?'Serenity':'Pastel theme'}</small><div style="display:flex;gap:5px;margin-top:7px"><i style="height:7px;width:28px;border-radius:8px;background:${t.rose}"></i><i style="height:7px;width:28px;border-radius:8px;background:${t.serenity}"></i></div></button>`).join('');$('#swatches').onclick=e=>{let b=e.target.closest('[data-i]');if(b)applyTheme(+b.dataset.i)};applyTheme(selectedTheme);
+document.querySelectorAll('[data-collapse]').forEach(b=>b.addEventListener('click',()=>{let id=b.dataset.collapse,el=document.getElementById(id);el.classList.toggle('hidden');document.getElementById(id+'Caret').textContent=el.classList.contains('hidden')?'⌄':'⌃'}));
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+let todos=load('caratTodos',[]),editTodoId=null;
+function renderTodos(){let list=$('#todoList');list.innerHTML=todos.length?todos.map(t=>`<div class="todo ${t.done?'done':''}"><input type="checkbox" data-check="${t.id}" ${t.done?'checked':''} aria-label="완료"><div class="todo-text"><small>${esc(t.subject||'과목 미지정')}</small><strong>${esc(t.task)}</strong></div><button class="icon-btn" data-edit-todo="${t.id}" title="수정">✎</button><button class="icon-btn" data-delete-todo="${t.id}" title="삭제">×</button></div>`).join(''):'<div class="empty">아직 할 일이 없어. 새 할 일을 추가해 봐!</div>'}
+function resetTodoForm(){editTodoId=null;$('#todoInput').value='';$('#todoSubject').disabled=false;$('#todoSubmit').textContent='＋ 할 일 추가';$('#todoCancel').classList.add('hidden')}
+$('#todoForm').onsubmit=e=>{e.preventDefault();let task=$('#todoInput').value.trim(),subject=$('#todoSubject').value;if(!task)return;if(editTodoId!==null){todos=todos.map(t=>t.id===editTodoId?{...t,task,subject}:t)}else todos.push({id:Date.now(),subject,task,done:false});save('caratTodos',todos);renderTodos();resetTodoForm()};
+$('#todoCancel').onclick=resetTodoForm;
+$('#todoList').addEventListener('change',e=>{let id=e.target.dataset.check;if(id){todos=todos.map(t=>t.id==id?{...t,done:e.target.checked}:t);save('caratTodos',todos);renderTodos()}});
+$('#todoList').addEventListener('click',e=>{let del=e.target.closest('[data-delete-todo]'),edit=e.target.closest('[data-edit-todo]');if(del){todos=todos.filter(t=>t.id!=del.dataset.deleteTodo);save('caratTodos',todos);renderTodos()}if(edit){let t=todos.find(t=>t.id==edit.dataset.editTodo);if(!t)return;editTodoId=t.id;$('#todoSubject').value=t.subject;$('#todoInput').value=t.task;$('#todoSubmit').textContent='수정 저장';$('#todoCancel').classList.remove('hidden');$('#todoInput').focus()}});
+renderTodos();
+let sessions=load('caratSessions',[]),running=false,startAt=null,elapsedBefore=0,tick=null;
+function fmt(sec){sec=Math.max(0,Math.floor(sec));let h=Math.floor(sec/3600),m=Math.floor(sec%3600/60),s=sec%60;return [h,m,s].map(n=>String(n).padStart(2,'0')).join(':')}
+function elapsed(){return elapsedBefore+(running?Math.floor((Date.now()-startAt)/1000):0)}
+function updateTimer(){let sec=elapsed();$('#timerDisplay').textContent=fmt(sec);$('#timerStatus').textContent=running?'측정 중 · '+($('#timerSubject').value||'과목 미지정')+' 공부시간을 기록하고 있어.':'일시정지 상태이거나 시작 전이야.'}
+$('#startTimer').onclick=()=>{if(running)return;startAt=Date.now();running=true;tick=setInterval(updateTimer,500);updateTimer()};
+$('#pauseTimer').onclick=()=>{if(!running)return;elapsedBefore=elapsed();running=false;clearInterval(tick);updateTimer()};
+$('#stopTimer').onclick=()=>{let sec=elapsed();if(sec>0){sessions.push({id:Date.now(),date:new Date().toLocaleDateString('sv-SE',{timeZone:'Asia/Seoul'}),subject:$('#timerSubject').value,seconds:sec});save('caratSessions',sessions)}running=false;startAt=null;elapsedBefore=0;clearInterval(tick);updateTimer();renderStats();};
+function todayKey(){return new Date().toLocaleDateString('sv-SE',{timeZone:'Asia/Seoul'})}
+function renderStats(){let today=sessions.filter(s=>s.date===todayKey());let labels=[...subjects];if(today.some(x=>!x.subject))labels.push('과목 미지정');let totals=Object.fromEntries(labels.map(s=>[s,today.filter(x=>(x.subject||'과목 미지정')===s).reduce((a,b)=>a+b.seconds,0)]));$('#subjectLegend').innerHTML=labels.map(s=>`<span class="subject-key"><i class="dot" style="background:${s==='과목 미지정'?'#e8e3ed':colorFor(s)}"></i>${esc(s)}</span>`).join('');$('#stats').innerHTML=labels.map(s=>`<div class="stat" style="border-top:3px solid ${s==='과목 미지정'?'#e8e3ed':colorFor(s)}"><strong>${Math.floor(totals[s]/3600)?Math.floor(totals[s]/3600)+'h ':''}${Math.floor(totals[s]%3600/60)}m</strong><span>${esc(s)}</span></div>`).join('');let all=today.reduce((a,b)=>a+b.seconds,0);$('#dailyBreakdown').innerHTML=labels.map(s=>({s,sec:totals[s]})).filter(x=>x.sec>0).map(x=>`<div class="time-item"><div class="time-text">${fmt(x.sec)}</div><div class="time-bar" style="background:${x.s==='과목 미지정'?'#e8e3ed':colorFor(x.s)}"></div><div class="time-main"><strong>${esc(x.s)}</strong><small>오늘 측정한 공부시간</small></div></div>`).join('')||'<div class="empty">아직 저장된 공부시간이 없어. 타이머로 첫 기록을 남겨봐!</div>';$('#dailyBreakdown').insertAdjacentHTML('afterbegin',`<div class="stats" style="margin-bottom:8px"><div class="stat" style="grid-column:1/-1"><strong>${fmt(all)}</strong><span>오늘 총 공부시간</span></div></div>`)}
+refreshSubjectSelects();renderStats();updateTimer();
+</script>
+<script>if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js").catch(err => console.warn("Service worker registration failed:", err))); }</script>
+</body>
+</html>
